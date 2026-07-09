@@ -1,7 +1,7 @@
 window.COACH = {
-  "generated": "2026-07-13",
+  "generated": "2026-07-09",
   "plan": {
-    "date": "2026-07-13",
+    "date": "2026-07-09",
     "pillars": [
       {
         "pillar": "weigh_in",
@@ -10,25 +10,9 @@ window.COACH = {
       },
       {
         "pillar": "strength",
-        "title": "Strength A (gentle)",
+        "title": "Core (gentle)",
         "detail": "",
         "items": [
-          {
-            "movement": "push_up",
-            "name": "Push-ups",
-            "variation": "incline (counter)",
-            "sets": 2,
-            "target": 12,
-            "unit": "reps"
-          },
-          {
-            "movement": "squat",
-            "name": "Squats",
-            "variation": "tempo (3s down)",
-            "sets": 3,
-            "target": 15,
-            "unit": "reps"
-          },
           {
             "movement": "plank",
             "name": "Plank",
@@ -38,11 +22,19 @@ window.COACH = {
             "unit": "seconds"
           },
           {
-            "movement": "row",
-            "name": "Doorframe / towel rows",
-            "variation": "doorframe",
+            "movement": "dead_bug",
+            "name": "Dead bug",
+            "variation": "basic",
             "sets": 2,
-            "target": 12,
+            "target": 10,
+            "unit": "reps"
+          },
+          {
+            "movement": "bird_dog",
+            "name": "Bird dog",
+            "variation": "basic",
+            "sets": 2,
+            "target": 10,
             "unit": "reps"
           }
         ]
@@ -50,7 +42,7 @@ window.COACH = {
       {
         "pillar": "yoga",
         "title": "Yoga",
-        "detail": "Yoga with Adriene: Yoga for Complete Beginners (session 2)",
+        "detail": "Yoga with Adriene: Yoga for Complete Beginners (session 1)",
         "url": "https://www.youtube.com/playlist?list=PLui6Eyny-UzybL2T-DmA-PYqf9iHfK2lC"
       },
       {
@@ -61,87 +53,60 @@ window.COACH = {
       {
         "pillar": "diet",
         "title": "Eat to target",
-        "detail": "Aim ~2000 cal, 150g protein. Snap a photo or tell me your meals."
+        "detail": "Aim ~1900 cal, 150g protein. Snap a photo or tell me your meals."
       }
     ]
   },
   "state": {
-    "generated_for": "2026-07-13",
+    "generated_for": "2026-07-09",
     "weight": {
-      "baseline_lbs": 224.0,
-      "latest_lbs": 220.0,
-      "ema_lbs": 222.16,
+      "baseline_lbs": null,
+      "latest_lbs": null,
+      "ema_lbs": null,
       "target_lbs": 180,
-      "trend_lbs_per_week": -2.15,
+      "trend_lbs_per_week": null,
       "trend_window_days": 28,
-      "milestones": [
-        220.0,
-        210.0,
-        200.0,
-        190.0,
-        180.0
-      ],
+      "milestones": [],
       "milestones_hit": [],
       "newly_crossed_milestones": [],
-      "next_milestone_lbs": 220.0,
-      "readings": 4,
-      "series": [
-        {
-          "date": "2026-07-07",
-          "lbs": 224.0,
-          "ema": 224.0
-        },
-        {
-          "date": "2026-07-09",
-          "lbs": 222.0,
-          "ema": 223.5
-        },
-        {
-          "date": "2026-07-11",
-          "lbs": 221.0,
-          "ema": 222.88
-        },
-        {
-          "date": "2026-07-13",
-          "lbs": 220.0,
-          "ema": 222.16
-        }
-      ]
+      "next_milestone_lbs": null,
+      "readings": 0,
+      "series": []
     },
     "diet": {
-      "target_calories": 2000,
+      "target_calories": 1900,
       "protein_target_g": 150,
-      "today_calories": 1750,
-      "today_protein_g": 120,
-      "avg_calories_7d": 1750,
-      "avg_protein_7d": 120,
-      "days_logged_7d": 1,
-      "calorie_adjust_reason": "dropping fast (-1.8%), added 100 cal to protect muscle"
+      "today_calories": 0,
+      "today_protein_g": 0,
+      "avg_calories_7d": null,
+      "avg_protein_7d": null,
+      "days_logged_7d": 0,
+      "calorie_adjust_reason": "not enough weigh-ins yet, holding target"
     },
     "activity": {
-      "active_days_7d": 5,
+      "active_days_7d": 0,
       "weekly_active_target": 6,
-      "days_since_last_log": 0,
-      "days_since_last_workout": 0,
-      "first_log_date": "2026-07-07",
-      "last_log_date": "2026-07-13"
+      "days_since_last_log": null,
+      "days_since_last_workout": null,
+      "first_log_date": null,
+      "last_log_date": null
     },
     "streaks": {
-      "weigh_in": 1,
-      "diet": 1,
+      "weigh_in": 0,
+      "diet": 0,
       "strength": 0,
-      "yoga": 1,
-      "cardio": 2,
-      "active": 3,
-      "yoga_total": 1,
-      "strength_total": 1
+      "yoga": 0,
+      "cardio": 0,
+      "active": 0,
+      "yoga_total": 0,
+      "strength_total": 0
     },
     "pillars_today": {
-      "weigh_in": true,
-      "diet": true,
+      "weigh_in": false,
+      "diet": false,
       "strength": false,
       "yoga": false,
-      "cardio": true
+      "cardio": false
     },
     "accountability": {
       "state": "good",
@@ -154,23 +119,23 @@ window.COACH = {
     },
     "progressions": {
       "push_up": {
-        "level": 1,
-        "variation": "incline (counter)",
-        "target": 12,
+        "level": 0,
+        "variation": "wall",
+        "target": 15,
         "unit": "reps",
-        "last_best": 15,
+        "last_best": null,
         "stall_count": 0,
-        "just_advanced": true,
+        "just_advanced": false,
         "at_top": false
       },
       "squat": {
-        "level": 1,
-        "variation": "tempo (3s down)",
-        "target": 15,
+        "level": 0,
+        "variation": "bodyweight",
+        "target": 20,
         "unit": "reps",
-        "last_best": 20,
+        "last_best": null,
         "stall_count": 0,
-        "just_advanced": true,
+        "just_advanced": false,
         "at_top": false
       },
       "hinge": {
