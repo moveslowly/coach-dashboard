@@ -255,6 +255,7 @@ window.COACH = {
       "weekly_active_target": 6,
       "days_since_last_log": 136,
       "days_since_last_workout": null,
+      "days_quiet": 0,
       "first_log_date": "2023-06-06",
       "last_log_date": "2026-02-23"
     },
@@ -276,12 +277,13 @@ window.COACH = {
       "cardio": false
     },
     "accountability": {
-      "state": "strike",
-      "unexcused_light_weeks": 12,
+      "state": "onboarding",
+      "engaged": false,
+      "unexcused_light_weeks": 0,
       "active_pause": null,
       "backups_active": [],
-      "backups_required": 1,
-      "coaching_withheld": true,
+      "backups_required": 0,
+      "coaching_withheld": false,
       "out_reasons_overused": []
     },
     "progressions": {
