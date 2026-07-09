@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coach</title>
+<meta name="theme-color" content="#0e1116">
+<meta name="description" content="David's fitness coach dashboard">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Coach">
+<style>
+  :root {
+    --bg: #0e1116;
+    --card: #161b22;
+    --card-border: #262c36;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #3fb950;
+    --accent-dim: #2a6e35;
+    --warn: #d29922;
+    --strike: #f85149;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    padding: 16px 16px calc(40px + env(safe-area-inset-bottom));
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 8px 4px 18px;
+  }
+
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  header .date {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .banner {
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    display: none;
+  }
+  .banner.warning {
+    display: block;
+    background: rgba(210, 153, 34, 0.12);
+    color: var(--warn);
+    border: 1px solid rgba(210, 153, 34, 0.35);
+  }
+  .banner.strike {
+    display: block;
+    background: rgba(248, 81, 73, 0.12);
+    color: var(--strike);
+    border: 1px solid rgba(248, 81, 73, 0.35);
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+
+  .card h2 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    margin: 0 0 12px;
+  }
+
+  /* TODAY checklist */
+  .pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-top: 1px solid var(--card-border);
+  }
+  .pillar:first-child { border-top: none; padding-top: 0; }
+  .pillar:last-child { padding-bottom: 0; }
+
+  .pillar-check {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+  .pillar-check svg { display: block; width: 20px; height: 20px; }
+
+  .pillar-body { flex: 1 1 auto; min-width: 0; }
+
+  .pillar-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .pillar-title.done { color: var(--text-dim); text-decoration: line-through; text-decoration-color: var(--accent-dim); }
+
+  .pillar-title a { color: inherit; text-decoration: none; }
+  .pillar-title a:hover { text-decoration: underline; }
+
+  .pillar-detail {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+  .pillar-detail a { color: var(--text-dim); }
+
+  .pillar-items {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .pillar-items li {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .pillar-items li b { color: var(--text); font-weight: 500; }
+
+  /* WEIGHT card */
+  .weight-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .stat {
+    text-align: left;
+  }
+  .stat .v {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .stat .v.trend-down { color: var(--accent); }
+  .stat .v.trend-up { color: var(--strike); }
+  .stat .l {
+    font-size: 10.5px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+
+  .chart-wrap { width: 100%; }
+  .chart-wrap svg { width: 100%; height: auto; display: block; }
+
+  .empty-state {
+    font-size: 13px;
+    color: var(--text-dim);
+    padding: 8px 0 2px;
+  }
+
+  /* STREAKS card */
+  .streak-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .streak {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .streak.active {
+    background: rgba(63, 185, 80, 0.10);
+    border-color: rgba(63, 185, 80, 0.4);
+  }
+  .streak .n {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+  }
+  .streak.active .n { color: var(--accent); }
+  .streak .n .unit { font-size: 11px; font-weight: 600; color: var(--text-dim); margin-left: 2px; }
+  .streak .label {
+    font-size: 10.5px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 3px;
+  }
+
+  /* DIET card */
+  .diet-row { margin-bottom: 14px; }
+  .diet-row:last-of-type { margin-bottom: 0; }
+  .diet-row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .diet-row-head .name { color: var(--text-dim); font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.04em; }
+  .diet-row-head .nums { color: var(--text); font-weight: 600; }
+  .diet-row-head .nums .of { color: var(--text-dim); font-weight: 400; }
+
+  .bar-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: var(--accent);
+  }
+  .bar-fill.over { background: var(--warn); }
+
+  .diet-footnote {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--card-border);
+  }
+
+  footer.pagefoot {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-dim);
+    padding-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>Coach</h1>
+    <div class="date" id="generated-date"></div>
+  </header>
+
+  <div class="banner" id="accountability-banner"></div>
+
+  <section class="card" id="today-card">
+    <h2>Today</h2>
+    <div id="today-list"></div>
+  </section>
+
+  <section class="card" id="weight-card">
+    <h2>Weight</h2>
+    <div id="weight-body"></div>
+  </section>
+
+  <section class="card" id="streaks-card">
+    <h2>Streaks</h2>
+    <div class="streak-row" id="streak-row"></div>
+  </section>
+
+  <section class="card" id="diet-card">
+    <h2>Diet</h2>
+    <div id="diet-body"></div>
+  </section>
+
+  <footer class="pagefoot">Coach dashboard &middot; offline-ready</footer>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DATA = window.COACH || {};
+  var plan = DATA.plan || {};
+  var state = DATA.state || {};
+
+  function esc(str) {
+    return String(str == null ? "" : str).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function fmtDate(d) {
+    if (!d) return "";
+    var parts = String(d).split("-");
+    if (parts.length !== 3) return d;
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    var y = parseInt(parts[0], 10), m = parseInt(parts[1], 10), day = parseInt(parts[2], 10);
+    if (!y || !m || !day) return d;
+    return months[m - 1] + " " + day + ", " + y;
+  }
+
+  function num(n, digits) {
+    if (n == null || isNaN(n)) return "--";
+    var f = Number(n);
+    if (digits == null) digits = (Math.abs(f % 1) > 0) ? 1 : 0;
+    return f.toFixed(digits).replace(/\.0$/, digits === 0 ? "" : "$&");
+  }
+
+  // ---------- header ----------
+  document.getElementById("generated-date").textContent = fmtDate(DATA.generated || plan.date || "");
+
+  // ---------- accountability banner ----------
+  (function renderBanner() {
+    var el = document.getElementById("accountability-banner");
+    var acc = state.accountability || {};
+    var s = acc.state;
+    if (s === "warning") {
+      el.className = "banner warning";
+      el.textContent = "Accountability check-in needed — you're on a warning.";
+    } else if (s === "strike") {
+      el.className = "banner strike";
+      el.textContent = "Accountability strike logged. Let's get back on track.";
+    } else {
+      el.className = "banner";
+      el.textContent = "";
+    }
+  })();
+
+  // ---------- TODAY card ----------
+  (function renderToday() {
+    var list = document.getElementById("today-list");
+    var pillars = plan.pillars || [];
+    var doneMap = state.pillars_today || {};
+
+    if (!pillars.length) {
+      list.innerHTML = '<div class="empty-state">No plan for today yet.</div>';
+      return;
+    }
+
+    var html = pillars.map(function (p) {
+      var done = !!doneMap[p.pillar];
+      var checkSvg = done
+        ? '<svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--accent)"/><path d="M6 10.2l2.4 2.4L14.2 7" stroke="#0e1116" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>'
+        : '<svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="var(--text-dim)" stroke-width="1.6"/></svg>';
+
+      var titleHtml = esc(p.title || "");
+      var detailHtml = p.detail ? esc(p.detail) : "";
+      if (p.url) {
+        titleHtml = '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + titleHtml + '</a>';
+        if (detailHtml) {
+          detailHtml = '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + detailHtml + '</a>';
+        }
+      }
+
+      var itemsHtml = "";
+      if (p.items && p.items.length) {
+        itemsHtml = '<ul class="pillar-items">' + p.items.map(function (it) {
+          var variation = it.variation ? " (" + esc(it.variation) + ")" : "";
+          var setsTarget = (it.sets != null && it.target != null)
+            ? it.sets + "&times;" + it.target + (it.unit ? " " + esc(it.unit) : "")
+            : "";
+          return '<li><b>' + esc(it.name || "") + '</b>' + variation + (setsTarget ? " &mdash; " + setsTarget : "") + '</li>';
+        }).join("") + '</ul>';
+      }
+
+      return (
+        '<div class="pillar">' +
+          '<div class="pillar-check">' + checkSvg + '</div>' +
+          '<div class="pillar-body">' +
+            '<div class="pillar-title' + (done ? " done" : "") + '">' + titleHtml + '</div>' +
+            (detailHtml ? '<div class="pillar-detail">' + detailHtml + '</div>' : "") +
+            itemsHtml +
+          '</div>' +
+        '</div>'
+      );
+    }).join("");
+
+    list.innerHTML = html;
+  })();
+
+  // ---------- WEIGHT card ----------
+  (function renderWeight() {
+    var body = document.getElementById("weight-body");
+    var w = state.weight || {};
+    var series = w.series || [];
+
+    if (!series.length) {
+      body.innerHTML = '<div class="empty-state">Log your first weigh-in to start the chart.</div>';
+      return;
+    }
+
+    var trend = w.trend_lbs_per_week;
+    var trendClass = "";
+    var trendText = "--";
+    if (trend != null && !isNaN(trend)) {
+      trendClass = trend < 0 ? "trend-down" : (trend > 0 ? "trend-up" : "");
+      trendText = (trend > 0 ? "+" : "") + num(trend, 1) + "/wk";
+    }
+
+    var statsHtml =
+      '<div class="weight-stats">' +
+        '<div class="stat"><div class="v">' + num(w.latest_lbs, 1) + '</div><div class="l">Latest</div></div>' +
+        '<div class="stat"><div class="v">' + num(w.ema_lbs, 1) + '</div><div class="l">Trend avg</div></div>' +
+        '<div class="stat"><div class="v ' + trendClass + '">' + trendText + '</div><div class="l">Per week</div></div>' +
+        '<div class="stat"><div class="v">' + (w.next_milestone_lbs != null ? num(w.next_milestone_lbs, 0) : "--") + '</div><div class="l">Next goal</div></div>' +
+      '</div>';
+
+    body.innerHTML = statsHtml + '<div class="chart-wrap" id="weight-chart-wrap"></div>';
+
+    document.getElementById("weight-chart-wrap").innerHTML = buildWeightChart(series, w);
+  })();
+
+  function buildWeightChart(series, w) {
+    var W = 480, H = 180;
+    var padL = 34, padR = 12, padT = 14, padB = 20;
+    var plotW = W - padL - padR;
+    var plotH = H - padT - padB;
+
+    var lbsValues = [];
+    series.forEach(function (pt) {
+      if (pt.lbs != null) lbsValues.push(pt.lbs);
+      if (pt.ema != null) lbsValues.push(pt.ema);
+    });
+    if (w.next_milestone_lbs != null) lbsValues.push(w.next_milestone_lbs);
+
+    var minV = Math.min.apply(null, lbsValues);
+    var maxV = Math.max.apply(null, lbsValues);
+    if (minV === maxV) { minV -= 2; maxV += 2; }
+    var pad = (maxV - minV) * 0.12 || 2;
+    minV -= pad;
+    maxV += pad;
+
+    var n = series.length;
+    function xAt(i) {
+      if (n === 1) return padL + plotW / 2;
+      return padL + (plotW * i) / (n - 1);
+    }
+    function yAt(v) {
+      return padT + plotH - ((v - minV) / (maxV - minV)) * plotH;
+    }
+
+    var emaPoints = series
+      .filter(function (pt) { return pt.ema != null; })
+      .map(function (pt, i) { return xAt(series.indexOf(pt)) + "," + yAt(pt.ema); });
+
+    var linePath = emaPoints.length ? "M" + emaPoints.join(" L") : "";
+
+    var dots = series.map(function (pt, i) {
+      if (pt.lbs == null) return "";
+      return '<circle cx="' + xAt(i) + '" cy="' + yAt(pt.lbs) + '" r="3" fill="var(--text-dim)" fill-opacity="0.55" />';
+    }).join("");
+
+    var emaDots = series.map(function (pt, i) {
+      if (pt.ema == null) return "";
+      var isLast = i === n - 1;
+      return '<circle cx="' + xAt(i) + '" cy="' + yAt(pt.ema) + '" r="' + (isLast ? 4 : 2.6) + '" fill="var(--accent)" />';
+    }).join("");
+
+    var milestoneLine = "";
+    if (w.next_milestone_lbs != null) {
+      var my = yAt(w.next_milestone_lbs);
+      milestoneLine =
+        '<line x1="' + padL + '" y1="' + my + '" x2="' + (W - padR) + '" y2="' + my + '" ' +
+          'stroke="var(--text-dim)" stroke-width="1" stroke-dasharray="4 4" opacity="0.5" />' +
+        '<text x="' + (W - padR) + '" y="' + (my - 5) + '" text-anchor="end" font-size="10" fill="var(--text-dim)">' +
+          'goal ' + num(w.next_milestone_lbs, 0) + '</text>';
+    }
+
+    // simple y-axis labels: top and bottom
+    var axisLabels =
+      '<text x="4" y="' + (padT + 4) + '" font-size="10" fill="var(--text-dim)">' + num(maxV, 0) + '</text>' +
+      '<text x="4" y="' + (padT + plotH) + '" font-size="10" fill="var(--text-dim)">' + num(minV, 0) + '</text>';
+
+    var firstLabel = series[0] ? fmtShortDate(series[0].date) : "";
+    var lastLabel = series[n - 1] ? fmtShortDate(series[n - 1].date) : "";
+    var xLabels =
+      '<text x="' + padL + '" y="' + (H - 4) + '" font-size="10" fill="var(--text-dim)">' + esc(firstLabel) + '</text>' +
+      '<text x="' + (W - padR) + '" y="' + (H - 4) + '" text-anchor="end" font-size="10" fill="var(--text-dim)">' + esc(lastLabel) + '</text>';
+
+    return (
+      '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet">' +
+        milestoneLine +
+        axisLabels +
+        dots +
+        (linePath ? '<path d="' + linePath + '" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />' : "") +
+        emaDots +
+        xLabels +
+      '</svg>'
+    );
+  }
+
+  function fmtShortDate(d) {
+    if (!d) return "";
+    var parts = String(d).split("-");
+    if (parts.length !== 3) return d;
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    var m = parseInt(parts[1], 10), day = parseInt(parts[2], 10);
+    if (!m || !day) return d;
+    return months[m - 1] + " " + day;
+  }
+
+  // ---------- STREAKS card ----------
+  (function renderStreaks() {
+    var row = document.getElementById("streak-row");
+    var s = state.streaks || {};
+    var order = [
+      { key: "active", label: "Active" },
+      { key: "weigh_in", label: "Weigh in" },
+      { key: "diet", label: "Diet" },
+      { key: "strength", label: "Strength" },
+      { key: "yoga", label: "Yoga" },
+      { key: "cardio", label: "Cardio" }
+    ];
+
+    var any = order.some(function (o) { return s[o.key] != null; });
+    if (!any) {
+      row.innerHTML = '<div class="empty-state">No streaks yet. Log a day to start one.</div>';
+      return;
+    }
+
+    row.innerHTML = order.map(function (o) {
+      var v = s[o.key];
+      var isActive = o.key === "active";
+      return (
+        '<div class="streak' + (isActive ? " active" : "") + '">' +
+          '<div class="n">' + (v != null ? v : 0) + '<span class="unit">d</span></div>' +
+          '<div class="label">' + esc(o.label) + '</div>' +
+        '</div>'
+      );
+    }).join("");
+  })();
+
+  // ---------- DIET card ----------
+  (function renderDiet() {
+    var body = document.getElementById("diet-body");
+    var d = state.diet || {};
+
+    if (d.today_calories == null && d.target_calories == null) {
+      body.innerHTML = '<div class="empty-state">No meals logged yet today.</div>';
+      return;
+    }
+
+    function barRow(label, value, target, unit) {
+      var v = value != null ? value : 0;
+      var t = target || 0;
+      var pct = t > 0 ? Math.min(100, Math.round((v / t) * 100)) : 0;
+      var over = t > 0 && v > t;
+      return (
+        '<div class="diet-row">' +
+          '<div class="diet-row-head">' +
+            '<span class="name">' + esc(label) + '</span>' +
+            '<span class="nums">' + num(v, 0) + unit + ' <span class="of">/ ' + num(t, 0) + unit + '</span></span>' +
+          '</div>' +
+          '<div class="bar-track"><div class="bar-fill' + (over ? " over" : "") + '" style="width:' + pct + '%"></div></div>' +
+        '</div>'
+      );
+    }
+
+    var html =
+      barRow("Calories", d.today_calories, d.target_calories, "") +
+      barRow("Protein", d.today_protein_g, d.protein_target_g, "g");
+
+    if (d.avg_calories_7d != null) {
+      html += '<div class="diet-footnote">7-day avg: ' + num(d.avg_calories_7d, 0) + ' cal' +
+        (d.days_logged_7d != null ? ' &middot; logged ' + d.days_logged_7d + '/7 days' : '') +
+        '</div>';
+    }
+
+    body.innerHTML = html;
+  })();
+
+  // ---------- service worker ----------
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("./sw.js").catch(function () {
+        // Fails silently, e.g. file:// preview or unsupported browser.
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
