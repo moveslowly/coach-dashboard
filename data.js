@@ -6,7 +6,7 @@ window.COACH = {
       {
         "pillar": "weigh_in",
         "title": "Weigh in",
-        "detail": "Step on the scale, tell me the number."
+        "detail": "Step on your scale, it syncs to me on its own."
       },
       {
         "pillar": "strength",
