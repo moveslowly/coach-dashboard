@@ -258,6 +258,30 @@ window.COACH = {
       "days_logged_7d": 0,
       "calorie_adjust_reason": "weight flat/up (+2.8%), trimmed 100 cal"
     },
+    "hydration": {
+      "today_ml": 1775,
+      "goal_ml": 2064,
+      "pct_today": 0.86,
+      "avg_7d": 1775,
+      "days_logged_7d": 1
+    },
+    "fasting": {
+      "target_hours": 16,
+      "weekly_min": 4,
+      "fasts_7d": 0,
+      "held_7d": 0,
+      "last_date": null,
+      "last_hours": null,
+      "last_held": null,
+      "streak": 0
+    },
+    "steps": {
+      "source": "sparky",
+      "goal": 8000,
+      "today": null,
+      "avg_7d": null,
+      "days_logged_7d": 0
+    },
     "activity": {
       "active_days_7d": 0,
       "weekly_active_target": 6,
