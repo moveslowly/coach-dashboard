@@ -28,7 +28,7 @@ window.COACH = {
       {
         "pillar": "diet",
         "title": "Eat to target",
-        "detail": "Aim ~1800 cal, 150g protein. Snap a photo or tell me your meals."
+        "detail": "Aim ~1800 cal, 150g protein. Log meals in SparkyFitness, a photo works."
       }
     ]
   },
@@ -36,8 +36,8 @@ window.COACH = {
     "generated_for": "2026-07-11",
     "weight": {
       "baseline_lbs": 225.6,
-      "latest_lbs": 232.4,
-      "ema_lbs": 228.31,
+      "latest_lbs": 233.7,
+      "ema_lbs": 229.66,
       "target_lbs": 180,
       "trend_lbs_per_week": null,
       "trend_window_days": 28,
@@ -51,7 +51,7 @@ window.COACH = {
       "milestones_hit": [],
       "newly_crossed_milestones": [],
       "next_milestone_lbs": 220.0,
-      "readings": 32,
+      "readings": 33,
       "series": [
         {
           "date": "2023-06-06",
@@ -212,25 +212,30 @@ window.COACH = {
           "date": "2026-02-23",
           "lbs": 232.4,
           "ema": 228.31
+        },
+        {
+          "date": "2026-07-11",
+          "lbs": 233.7,
+          "ema": 229.66
         }
       ]
     },
     "diet": {
       "target_calories": 1800,
       "protein_target_g": 150,
-      "today_calories": 0,
-      "today_protein_g": 0,
-      "avg_calories_7d": null,
-      "avg_protein_7d": null,
-      "days_logged_7d": 0,
-      "calorie_adjust_reason": "weight flat/up (+2.8%), trimmed 100 cal"
+      "today_calories": 1299,
+      "today_protein_g": 26,
+      "avg_calories_7d": 1299,
+      "avg_protein_7d": 26,
+      "days_logged_7d": 1,
+      "calorie_adjust_reason": "weight flat/up (+4.9%), trimmed 100 cal"
     },
     "hydration": {
-      "today_ml": 0,
+      "today_ml": 1065,
       "goal_ml": 2064,
-      "pct_today": 0.0,
-      "avg_7d": 1775,
-      "days_logged_7d": 1
+      "pct_today": 0.52,
+      "avg_7d": 1420,
+      "days_logged_7d": 2
     },
     "fasting": {
       "target_hours": 16,
@@ -245,39 +250,39 @@ window.COACH = {
     "steps": {
       "source": "sparky",
       "goal": 8000,
-      "today": null,
-      "avg_7d": null,
-      "days_logged_7d": 0
+      "today": 8392,
+      "avg_7d": 9915,
+      "days_logged_7d": 3
     },
     "activity": {
-      "active_days_7d": 0,
+      "active_days_7d": 1,
       "weekly_active_target": 6,
-      "days_since_last_log": 138,
+      "days_since_last_log": 0,
       "days_since_last_workout": null,
       "days_quiet": 0,
       "first_log_date": "2023-06-06",
-      "last_log_date": "2026-02-23"
+      "last_log_date": "2026-07-11"
     },
     "streaks": {
-      "weigh_in": 0,
+      "weigh_in": 1,
       "diet": 0,
       "strength": 0,
       "yoga": 0,
       "cardio": 0,
-      "active": 0,
+      "active": 1,
       "yoga_total": 0,
       "strength_total": 0
     },
     "pillars_today": {
-      "weigh_in": false,
+      "weigh_in": true,
       "diet": false,
       "strength": false,
       "yoga": false,
       "cardio": false
     },
     "accountability": {
-      "state": "onboarding",
-      "engaged": false,
+      "state": "good",
+      "engaged": true,
       "unexcused_light_weeks": 0,
       "active_pause": null,
       "backups_active": [],
