@@ -1,7 +1,7 @@
 window.COACH = {
-  "generated": "2026-07-11",
+  "generated": "2026-07-12",
   "plan": {
-    "date": "2026-07-11",
+    "date": "2026-07-12",
     "pillars": [
       {
         "pillar": "weigh_in",
@@ -33,7 +33,7 @@ window.COACH = {
     ]
   },
   "state": {
-    "generated_for": "2026-07-11",
+    "generated_for": "2026-07-12",
     "weight": {
       "baseline_lbs": 225.6,
       "latest_lbs": 233.7,
@@ -223,17 +223,17 @@ window.COACH = {
     "diet": {
       "target_calories": 1800,
       "protein_target_g": 150,
-      "today_calories": 1299,
-      "today_protein_g": 26,
+      "today_calories": 0,
+      "today_protein_g": 0,
       "avg_calories_7d": 1299,
       "avg_protein_7d": 26,
       "days_logged_7d": 1,
       "calorie_adjust_reason": "weight flat/up (+4.9%), trimmed 100 cal"
     },
     "hydration": {
-      "today_ml": 1065,
+      "today_ml": 0,
       "goal_ml": 2064,
-      "pct_today": 0.52,
+      "pct_today": 0.0,
       "avg_7d": 1420,
       "days_logged_7d": 2
     },
@@ -250,16 +250,16 @@ window.COACH = {
     "steps": {
       "source": "sparky",
       "goal": 8000,
-      "today": 8392,
+      "today": 0,
       "avg_7d": 9915,
       "days_logged_7d": 3
     },
     "activity": {
       "active_days_7d": 1,
       "weekly_active_target": 6,
-      "days_since_last_log": 0,
+      "days_since_last_log": 1,
       "days_since_last_workout": null,
-      "days_quiet": 0,
+      "days_quiet": 1,
       "first_log_date": "2023-06-06",
       "last_log_date": "2026-07-11"
     },
@@ -274,7 +274,7 @@ window.COACH = {
       "strength_total": 0
     },
     "pillars_today": {
-      "weigh_in": true,
+      "weigh_in": false,
       "diet": false,
       "strength": false,
       "yoga": false,
