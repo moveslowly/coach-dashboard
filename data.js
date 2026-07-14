@@ -1,7 +1,7 @@
 window.COACH = {
-  "generated": "2026-07-13",
+  "generated": "2026-07-14",
   "plan": {
-    "date": "2026-07-13",
+    "date": "2026-07-14",
     "pillars": [
       {
         "pillar": "weigh_in",
@@ -10,25 +10,9 @@ window.COACH = {
       },
       {
         "pillar": "strength",
-        "title": "Strength A (gentle)",
+        "title": "Core (gentle)",
         "detail": "",
         "items": [
-          {
-            "movement": "push_up",
-            "name": "Push-ups",
-            "variation": "wall",
-            "sets": 2,
-            "target": 15,
-            "unit": "reps"
-          },
-          {
-            "movement": "squat",
-            "name": "Squats",
-            "variation": "bodyweight",
-            "sets": 2,
-            "target": 20,
-            "unit": "reps"
-          },
           {
             "movement": "plank",
             "name": "Plank",
@@ -38,11 +22,19 @@ window.COACH = {
             "unit": "seconds"
           },
           {
-            "movement": "row",
-            "name": "Doorframe / towel rows",
-            "variation": "doorframe",
+            "movement": "dead_bug",
+            "name": "Dead bug",
+            "variation": "basic",
             "sets": 2,
-            "target": 12,
+            "target": 10,
+            "unit": "reps"
+          },
+          {
+            "movement": "bird_dog",
+            "name": "Bird dog",
+            "variation": "basic",
+            "sets": 2,
+            "target": 10,
             "unit": "reps"
           }
         ]
@@ -66,7 +58,7 @@ window.COACH = {
     ]
   },
   "state": {
-    "generated_for": "2026-07-13",
+    "generated_for": "2026-07-14",
     "weight": {
       "baseline_lbs": 225.6,
       "latest_lbs": 233.7,
@@ -267,8 +259,8 @@ window.COACH = {
       "today_ml": 0,
       "goal_ml": 2064,
       "pct_today": 0.0,
-      "avg_7d": 1420,
-      "days_logged_7d": 2
+      "avg_7d": 1183,
+      "days_logged_7d": 3
     },
     "fasting": {
       "target_hours": 16,
@@ -284,15 +276,15 @@ window.COACH = {
       "source": "sparky",
       "goal": 8000,
       "today": 0,
-      "avg_7d": 9915,
-      "days_logged_7d": 3
+      "avg_7d": 7749,
+      "days_logged_7d": 5
     },
     "activity": {
       "active_days_7d": 1,
       "weekly_active_target": 6,
-      "days_since_last_log": 2,
+      "days_since_last_log": 3,
       "days_since_last_workout": null,
-      "days_quiet": 2,
+      "days_quiet": 3,
       "first_log_date": "2023-06-06",
       "last_log_date": "2026-07-11"
     },
