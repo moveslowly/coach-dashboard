@@ -1,7 +1,7 @@
 window.COACH = {
-  "generated": "2026-07-15",
+  "generated": "2026-07-16",
   "plan": {
-    "date": "2026-07-15",
+    "date": "2026-07-16",
     "pillars": [
       {
         "pillar": "weigh_in",
@@ -10,33 +10,9 @@ window.COACH = {
       },
       {
         "pillar": "strength",
-        "title": "Strength B (gentle)",
+        "title": "Core (gentle)",
         "detail": "",
         "items": [
-          {
-            "movement": "push_up",
-            "name": "Push-ups",
-            "variation": "wall",
-            "sets": 2,
-            "target": 15,
-            "unit": "reps"
-          },
-          {
-            "movement": "squat",
-            "name": "Squats",
-            "variation": "bodyweight",
-            "sets": 2,
-            "target": 20,
-            "unit": "reps"
-          },
-          {
-            "movement": "hinge",
-            "name": "Glute bridges",
-            "variation": "two-leg",
-            "sets": 2,
-            "target": 20,
-            "unit": "reps"
-          },
           {
             "movement": "plank",
             "name": "Plank",
@@ -44,6 +20,22 @@ window.COACH = {
             "sets": 2,
             "target": 40,
             "unit": "seconds"
+          },
+          {
+            "movement": "dead_bug",
+            "name": "Dead bug",
+            "variation": "basic",
+            "sets": 2,
+            "target": 10,
+            "unit": "reps"
+          },
+          {
+            "movement": "bird_dog",
+            "name": "Bird dog",
+            "variation": "basic",
+            "sets": 2,
+            "target": 10,
+            "unit": "reps"
           }
         ]
       },
@@ -66,7 +58,7 @@ window.COACH = {
     ]
   },
   "state": {
-    "generated_for": "2026-07-15",
+    "generated_for": "2026-07-16",
     "weight": {
       "baseline_lbs": 225.6,
       "latest_lbs": 233.7,
@@ -284,15 +276,15 @@ window.COACH = {
       "source": "sparky",
       "goal": 8000,
       "today": 0,
-      "avg_7d": 7749,
-      "days_logged_7d": 5
+      "avg_7d": 5967,
+      "days_logged_7d": 4
     },
     "activity": {
       "active_days_7d": 1,
       "weekly_active_target": 6,
-      "days_since_last_log": 4,
+      "days_since_last_log": 5,
       "days_since_last_workout": null,
-      "days_quiet": 4,
+      "days_quiet": 5,
       "first_log_date": "2023-06-06",
       "last_log_date": "2026-07-11"
     },
