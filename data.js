@@ -1,7 +1,7 @@
 window.COACH = {
-  "generated": "2026-07-16",
+  "generated": "2026-07-17",
   "plan": {
-    "date": "2026-07-16",
+    "date": "2026-07-17",
     "pillars": [
       {
         "pillar": "weigh_in",
@@ -10,9 +10,25 @@ window.COACH = {
       },
       {
         "pillar": "strength",
-        "title": "Core (gentle)",
+        "title": "Strength A (gentle)",
         "detail": "",
         "items": [
+          {
+            "movement": "push_up",
+            "name": "Push-ups",
+            "variation": "wall",
+            "sets": 2,
+            "target": 15,
+            "unit": "reps"
+          },
+          {
+            "movement": "squat",
+            "name": "Squats",
+            "variation": "bodyweight",
+            "sets": 2,
+            "target": 20,
+            "unit": "reps"
+          },
           {
             "movement": "plank",
             "name": "Plank",
@@ -22,19 +38,11 @@ window.COACH = {
             "unit": "seconds"
           },
           {
-            "movement": "dead_bug",
-            "name": "Dead bug",
-            "variation": "basic",
+            "movement": "row",
+            "name": "Doorframe / towel rows",
+            "variation": "doorframe",
             "sets": 2,
-            "target": 10,
-            "unit": "reps"
-          },
-          {
-            "movement": "bird_dog",
-            "name": "Bird dog",
-            "variation": "basic",
-            "sets": 2,
-            "target": 10,
+            "target": 12,
             "unit": "reps"
           }
         ]
@@ -58,7 +66,7 @@ window.COACH = {
     ]
   },
   "state": {
-    "generated_for": "2026-07-16",
+    "generated_for": "2026-07-17",
     "weight": {
       "baseline_lbs": 225.6,
       "latest_lbs": 233.7,
@@ -250,17 +258,17 @@ window.COACH = {
       "protein_target_g": 150,
       "today_calories": 0,
       "today_protein_g": 0,
-      "avg_calories_7d": 1299,
-      "avg_protein_7d": 26,
-      "days_logged_7d": 1,
+      "avg_calories_7d": null,
+      "avg_protein_7d": null,
+      "days_logged_7d": 0,
       "calorie_adjust_reason": "weight flat/up (+4.9%), trimmed 100 cal"
     },
     "hydration": {
       "today_ml": 0,
       "goal_ml": 2064,
       "pct_today": 0.0,
-      "avg_7d": 1183,
-      "days_logged_7d": 3
+      "avg_7d": null,
+      "days_logged_7d": 0
     },
     "fasting": {
       "target_hours": 16,
@@ -275,16 +283,16 @@ window.COACH = {
     "steps": {
       "source": "sparky",
       "goal": 8000,
-      "today": 0,
-      "avg_7d": 5967,
-      "days_logged_7d": 4
+      "today": null,
+      "avg_7d": null,
+      "days_logged_7d": 0
     },
     "activity": {
       "active_days_7d": 1,
       "weekly_active_target": 6,
-      "days_since_last_log": 5,
+      "days_since_last_log": 6,
       "days_since_last_workout": null,
-      "days_quiet": 5,
+      "days_quiet": 6,
       "first_log_date": "2023-06-06",
       "last_log_date": "2026-07-11"
     },
