@@ -290,11 +290,11 @@ window.COACH = {
     "activity": {
       "active_days_7d": 2,
       "weekly_active_target": 6,
-      "days_since_last_log": 1,
+      "days_since_last_log": 0,
       "days_since_last_workout": 1,
       "days_quiet": 1,
       "first_log_date": "2023-06-06",
-      "last_log_date": "2026-07-16"
+      "last_log_date": "2026-07-17"
     },
     "streaks": {
       "weigh_in": 0,
