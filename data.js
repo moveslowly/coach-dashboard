@@ -258,17 +258,17 @@ window.COACH = {
       "protein_target_g": 150,
       "today_calories": 0,
       "today_protein_g": 0,
-      "avg_calories_7d": null,
-      "avg_protein_7d": null,
-      "days_logged_7d": 0,
+      "avg_calories_7d": 1299,
+      "avg_protein_7d": 26,
+      "days_logged_7d": 1,
       "calorie_adjust_reason": "weight flat/up (+4.9%), trimmed 100 cal"
     },
     "hydration": {
       "today_ml": 0,
       "goal_ml": 2064,
       "pct_today": 0.0,
-      "avg_7d": null,
-      "days_logged_7d": 0
+      "avg_7d": 888,
+      "days_logged_7d": 2
     },
     "fasting": {
       "target_hours": 16,
@@ -283,9 +283,9 @@ window.COACH = {
     "steps": {
       "source": "sparky",
       "goal": 8000,
-      "today": null,
-      "avg_7d": null,
-      "days_logged_7d": 0
+      "today": 0,
+      "avg_7d": 5797,
+      "days_logged_7d": 3
     },
     "activity": {
       "active_days_7d": 2,
