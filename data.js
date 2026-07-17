@@ -288,7 +288,7 @@ window.COACH = {
       "days_logged_7d": 3
     },
     "activity": {
-      "active_days_7d": 2,
+      "active_days_7d": 3,
       "weekly_active_target": 6,
       "days_since_last_log": 0,
       "days_since_last_workout": 1,
@@ -314,9 +314,9 @@ window.COACH = {
       "cardio": false
     },
     "accountability": {
-      "state": "slipping",
+      "state": "good",
       "engaged": true,
-      "unexcused_light_weeks": 1,
+      "unexcused_light_weeks": 0,
       "active_pause": null,
       "backups_active": [],
       "backups_required": 0,
