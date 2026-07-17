@@ -288,21 +288,21 @@ window.COACH = {
       "days_logged_7d": 0
     },
     "activity": {
-      "active_days_7d": 1,
+      "active_days_7d": 2,
       "weekly_active_target": 6,
-      "days_since_last_log": 6,
-      "days_since_last_workout": null,
-      "days_quiet": 6,
+      "days_since_last_log": 1,
+      "days_since_last_workout": 1,
+      "days_quiet": 1,
       "first_log_date": "2023-06-06",
-      "last_log_date": "2026-07-11"
+      "last_log_date": "2026-07-16"
     },
     "streaks": {
       "weigh_in": 0,
       "diet": 0,
       "strength": 0,
       "yoga": 0,
-      "cardio": 0,
-      "active": 0,
+      "cardio": 1,
+      "active": 1,
       "yoga_total": 0,
       "strength_total": 0
     },
