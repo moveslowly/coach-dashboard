@@ -1,7 +1,7 @@
 window.COACH = {
-  "generated": "2026-07-18",
+  "generated": "2026-07-19",
   "plan": {
-    "date": "2026-07-18",
+    "date": "2026-07-19",
     "pillars": [
       {
         "pillar": "weigh_in",
@@ -33,7 +33,7 @@ window.COACH = {
     ]
   },
   "state": {
-    "generated_for": "2026-07-18",
+    "generated_for": "2026-07-19",
     "weight": {
       "baseline_lbs": 225.6,
       "latest_lbs": 233.7,
@@ -251,15 +251,15 @@ window.COACH = {
       "source": "sparky",
       "goal": 8000,
       "today": 0,
-      "avg_7d": 4310,
-      "days_logged_7d": 2
+      "avg_7d": 1069,
+      "days_logged_7d": 1
     },
     "activity": {
-      "active_days_7d": 2,
+      "active_days_7d": 1,
       "weekly_active_target": 6,
-      "days_since_last_log": 1,
-      "days_since_last_workout": 2,
-      "days_quiet": 2,
+      "days_since_last_log": 2,
+      "days_since_last_workout": 3,
+      "days_quiet": 3,
       "first_log_date": "2023-06-06",
       "last_log_date": "2026-07-17"
     },
