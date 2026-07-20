@@ -287,6 +287,11 @@ window.COACH = {
       "avg_7d": null,
       "days_logged_7d": 0
     },
+    "feed": {
+      "last_date": "2026-07-13",
+      "stale_days": 7,
+      "source": "sparky"
+    },
     "activity": {
       "active_days_7d": 1,
       "weekly_active_target": 6,
