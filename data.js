@@ -1,7 +1,7 @@
 window.COACH = {
-  "generated": "2026-07-19",
+  "generated": "2026-07-20",
   "plan": {
-    "date": "2026-07-19",
+    "date": "2026-07-20",
     "pillars": [
       {
         "pillar": "weigh_in",
@@ -10,9 +10,42 @@ window.COACH = {
       },
       {
         "pillar": "strength",
-        "title": "Strength rest",
-        "detail": "No strength today. Let the muscles recover.",
-        "items": []
+        "title": "Strength A (gentle)",
+        "detail": "",
+        "items": [
+          {
+            "movement": "push_up",
+            "name": "Push-ups",
+            "variation": "wall",
+            "sets": 2,
+            "target": 15,
+            "unit": "reps"
+          },
+          {
+            "movement": "squat",
+            "name": "Squats",
+            "variation": "bodyweight",
+            "sets": 2,
+            "target": 20,
+            "unit": "reps"
+          },
+          {
+            "movement": "plank",
+            "name": "Plank",
+            "variation": "knees",
+            "sets": 2,
+            "target": 40,
+            "unit": "seconds"
+          },
+          {
+            "movement": "row",
+            "name": "Doorframe / towel rows",
+            "variation": "doorframe",
+            "sets": 2,
+            "target": 12,
+            "unit": "reps"
+          }
+        ]
       },
       {
         "pillar": "yoga",
@@ -33,7 +66,7 @@ window.COACH = {
     ]
   },
   "state": {
-    "generated_for": "2026-07-19",
+    "generated_for": "2026-07-20",
     "weight": {
       "baseline_lbs": 225.6,
       "latest_lbs": 233.7,
@@ -234,8 +267,8 @@ window.COACH = {
       "today_ml": 0,
       "goal_ml": 2064,
       "pct_today": 0.0,
-      "avg_7d": 710,
-      "days_logged_7d": 1
+      "avg_7d": null,
+      "days_logged_7d": 0
     },
     "fasting": {
       "target_hours": 16,
@@ -251,15 +284,15 @@ window.COACH = {
       "source": "sparky",
       "goal": 8000,
       "today": 0,
-      "avg_7d": 1069,
-      "days_logged_7d": 1
+      "avg_7d": null,
+      "days_logged_7d": 0
     },
     "activity": {
       "active_days_7d": 1,
       "weekly_active_target": 6,
-      "days_since_last_log": 2,
-      "days_since_last_workout": 3,
-      "days_quiet": 3,
+      "days_since_last_log": 3,
+      "days_since_last_workout": 4,
+      "days_quiet": 4,
       "first_log_date": "2023-06-06",
       "last_log_date": "2026-07-17"
     },
@@ -281,9 +314,9 @@ window.COACH = {
       "cardio": false
     },
     "accountability": {
-      "state": "good",
+      "state": "slipping",
       "engaged": true,
-      "unexcused_light_weeks": 0,
+      "unexcused_light_weeks": 1,
       "active_pause": null,
       "backups_active": [],
       "backups_required": 0,
