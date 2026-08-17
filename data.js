@@ -1,7 +1,7 @@
 window.COACH = {
-  "generated": "2026-08-16",
+  "generated": "2026-08-17",
   "plan": {
-    "date": "2026-08-16",
+    "date": "2026-08-17",
     "pillars": [
       {
         "pillar": "weigh_in",
@@ -10,9 +10,42 @@ window.COACH = {
       },
       {
         "pillar": "strength",
-        "title": "Strength rest",
-        "detail": "No strength today. Let the muscles recover.",
-        "items": []
+        "title": "Strength A (gentle)",
+        "detail": "",
+        "items": [
+          {
+            "movement": "push_up",
+            "name": "Push-ups",
+            "variation": "wall",
+            "sets": 2,
+            "target": 15,
+            "unit": "reps"
+          },
+          {
+            "movement": "squat",
+            "name": "Squats",
+            "variation": "bodyweight",
+            "sets": 2,
+            "target": 20,
+            "unit": "reps"
+          },
+          {
+            "movement": "plank",
+            "name": "Plank",
+            "variation": "knees",
+            "sets": 2,
+            "target": 40,
+            "unit": "seconds"
+          },
+          {
+            "movement": "row",
+            "name": "Doorframe / towel rows",
+            "variation": "doorframe",
+            "sets": 2,
+            "target": 12,
+            "unit": "reps"
+          }
+        ]
       },
       {
         "pillar": "yoga",
@@ -33,7 +66,7 @@ window.COACH = {
     ]
   },
   "state": {
-    "generated_for": "2026-08-16",
+    "generated_for": "2026-08-17",
     "weight": {
       "baseline_lbs": 225.6,
       "latest_lbs": 233.7,
@@ -256,14 +289,14 @@ window.COACH = {
     },
     "feed": {
       "last_date": "2026-07-13",
-      "stale_days": 34,
+      "stale_days": 35,
       "source": "sparky"
     },
     "activity": {
       "active_days_7d": 0,
       "weekly_active_target": 6,
-      "days_since_last_log": 30,
-      "days_since_last_workout": 31,
+      "days_since_last_log": 31,
+      "days_since_last_workout": 32,
       "days_quiet": 0,
       "first_log_date": "2023-06-06",
       "last_log_date": "2026-07-17"
